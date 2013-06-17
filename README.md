@@ -1,4 +1,4 @@
-# Android Dalvik bytecode hacking with TexMate 2
+# Android Dalvik bytecode hacking with TextMate 2
 
 * Open a `dex` file in TextMate.
 * It'll show you the bytecode as smali code.
