@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+rm -rf "${TMPDIR}baksmali"
+"${TM_BUNDLE_SUPPORT}/bin/baksmali" "$TM_FILEPATH" --output "${TMPDIR}baksmali"
+find "${TMPDIR}baksmali" -name *.smali|sort -r|xargs cat
+</string>
+	<key>contentMatch</key>
+	<string>\Adex</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>Import dex as smali</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceDocument</string>
+	<key>scope</key>
+	<string>attr.rev-path.dex, attr.rev-path.odex</string>
+	<key>semanticClass</key>
+	<string>callback.document.binary-import</string>
+	<key>uuid</key>
+	<string>5B74760D-DD85-4CA7-940B-FFD745D20D60</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

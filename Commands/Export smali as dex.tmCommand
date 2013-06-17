@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+rm -rf "${TMPDIR}smali"
+mkdir "${TMPDIR}smali"
+cd "${TMPDIR}smali"
+
+"${TM_BUNDLE_SUPPORT}/bin/split-multiple-smali.perl"
+
+"${TM_BUNDLE_SUPPORT}/bin/smali" "${TMPDIR}smali" --output "${TMPDIR}out.dex"
+
+cat "${TMPDIR}out.dex"
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>Export smali as dex</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceDocument</string>
+	<key>scope</key>
+	<string>attr.rev-path.dex, attr.rev-path.odex</string>
+	<key>semanticClass</key>
+	<string>callback.document.binary-export</string>
+	<key>uuid</key>
+	<string>7480A19E-EEAC-4D9A-B0D7-8D78A3DB4B63</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
